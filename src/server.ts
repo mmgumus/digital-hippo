@@ -3,7 +3,7 @@ import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3333;
+const PORT = process.env.PORT || 3333;
 
 const start = async () => {
    const payload = await getPayloadClient({
@@ -22,7 +22,7 @@ const start = async () => {
 
       app.listen(PORT, async () => {
          payload.logger.info(
-            `Next.js App URL: ${process.env.NEXT_PUBLIC_SEVER_URL}`
+            `Next.js App URL: ${process.env.NEXT_PUBLIC_SERVER_URL}`
          );
       });
    });
